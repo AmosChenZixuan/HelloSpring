@@ -4,6 +4,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 
@@ -35,14 +37,16 @@ class MongoDB implements DataService {
     }
 }
 
-@Component
+// @Component
+@Repository // indicate the component involves data storage and retrieval
 class MySQL implements DataService {
     public int[] retrieveData() {
         return new int[] { 1, 2, 3 };
     }
 }
 
-@Component
+// @Component
+@Service // indicate the component has business logic
 class BusinessCalculationService {
     DataService dataService;
 
